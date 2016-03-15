@@ -10,7 +10,7 @@ namespace Diplom
     {
         static void Main(string[] args)
         {
-            qwewqewqewq;
+            Console.WriteLine("Hello GitHub!!!!!!");
         }
     }
 }
