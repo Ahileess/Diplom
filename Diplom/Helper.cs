@@ -7,10 +7,14 @@ using System.Net;
 
 namespace Diplom
 {
-    class Program
+    static internal class Helper
     {
-        static void Main(string[] args)
+        
+
+        static public string SubNet(string adress, int mask)
         {
+            //return IPAddress.Parse(adress);
+            return "";
         }
     }
 }
