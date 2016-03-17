@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net;
+using System.Net.NetworkInformation;
 
 namespace Diplom
 {
@@ -11,12 +12,10 @@ namespace Diplom
     {
         static void Main(string[] args)
         {
-            string mask = "255.255.255.0";
+            string mask = "255.255.255.240";
             string subNet = IPHelper.IPSubNet("192.168.0.3", mask);
-            Console.WriteLine(subNet);
 
             string lastIP = IPHelper.LastIPAdress(subNet, mask);
-            Console.WriteLine(lastIP);
 
             List<IPAddress> list = IPHelper.IPAdressesList(subNet, lastIP);
 
@@ -24,6 +23,16 @@ namespace Diplom
             {
                 Console.WriteLine(ip.ToString());
             }
+
+            Pinging pinging = new Pinging(list);
+
+
+            if (Pinging.ReplyAllIP.Count != 0)
+            {
+                PingReply reply = Pinging.ReplyAllIP.Last();
+                Console.WriteLine(reply.Address.ToString());
+            }
+            
 
         }
     }

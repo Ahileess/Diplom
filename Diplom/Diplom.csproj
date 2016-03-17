@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="ConvertHelper.cs" />
     <Compile Include="IPHelper.cs" />
+    <Compile Include="Pinging.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
