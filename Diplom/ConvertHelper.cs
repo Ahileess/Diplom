@@ -15,7 +15,7 @@ namespace Diplom
         /// </summary>
         /// <param name="ipi">один разряд ип адреса</param>
         /// <returns>8-ми значная байтовая строка </returns>
-        static protected string ByteToBinaryString(byte ipi)
+        static public string ByteToBinaryString(byte ipi)
         {
             string rc = "";
             ipi = Convert.ToByte(ipi);
@@ -38,7 +38,7 @@ namespace Diplom
         /// </summary>
         /// <param name="bstr">двоичное представление ип адреса</param>
         /// <returns></returns>
-        static protected string BinaryStringToIP(string bstr)
+        static public string BinaryStringToIP(string bstr)
         {
             string rc = "";
             string[] sip = { "", "", "", "" };
@@ -57,7 +57,7 @@ namespace Diplom
         /// </summary>
         /// <param name="eight"> двоичная 8-ми значная строка </param>
         /// <returns></returns>
-        static protected byte BinaryStringToByte(string eight)
+        static public byte BinaryStringToByte(string eight)
         {
             byte rc = 0;
             while (eight.Length < 8) eight.Insert(0, "0");

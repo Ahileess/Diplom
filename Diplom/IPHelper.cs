@@ -7,7 +7,7 @@ using System.Net;
 
 namespace Diplom
 {
-    internal class IPHelper: ConvertHelper
+    internal class IPHelper
     {
         
         static public string IPSubNet(string address, string mask)
@@ -21,8 +21,8 @@ namespace Diplom
 
             for (int i = 0; i < arrIpAddress.Length; i++)
             { 
-                ipAddress += ByteToBinaryString(Convert.ToByte(arrIpAddress[i]));
-                maskAddress += ByteToBinaryString(Convert.ToByte(arrMaskAddres[i]));
+                ipAddress += ConvertHelper.ByteToBinaryString(Convert.ToByte(arrIpAddress[i]));
+                maskAddress += ConvertHelper.ByteToBinaryString(Convert.ToByte(arrMaskAddres[i]));
             }
 
             for (int i = 0; i < ipAddress.Length; i++)
@@ -31,7 +31,7 @@ namespace Diplom
                 else subnet += 0;
             }
 
-            return BinaryStringToIP(subnet);
+            return ConvertHelper.BinaryStringToIP(subnet);
         }
 
         static public List<IPAddress> IPAdressesList(string subNetIP, string lastIPAddress)
@@ -76,8 +76,8 @@ namespace Diplom
 
             for (int i = 0; i < arrMaskAddress.Length; i++)
             {
-                maskAddress += ByteToBinaryString(Convert.ToByte(arrMaskAddress[i]));
-                subNetAddress += ByteToBinaryString(Convert.ToByte(arrSubNetAddress[i]));
+                maskAddress += ConvertHelper.ByteToBinaryString(Convert.ToByte(arrMaskAddress[i]));
+                subNetAddress += ConvertHelper.ByteToBinaryString(Convert.ToByte(arrSubNetAddress[i]));
             }
 
             for (number = 0; number < maskAddress.Length; number++)
@@ -89,7 +89,7 @@ namespace Diplom
 
             while (maxIPAddress.Length < 32) maxIPAddress += "1";
 
-            return BinaryStringToIP(maxIPAddress);
+            return ConvertHelper.BinaryStringToIP(maxIPAddress);
         }
 
         
