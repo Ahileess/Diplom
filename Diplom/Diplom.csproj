@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckingPorts.cs" />
     <Compile Include="ConvertHelper.cs" />
     <Compile Include="IPHelper.cs" />
     <Compile Include="Pinging.cs" />

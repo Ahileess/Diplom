@@ -12,8 +12,8 @@ namespace Diplom
     {
         static void Main(string[] args)
         {
-            string mask = "255.255.255.240";
-            string subNet = IPHelper.IPSubNet("192.168.0.3", mask);
+            string mask = "255.255.255.248";
+            string subNet = IPHelper.IPSubNet("192.168.0.100", mask);
 
             string lastIP = IPHelper.LastIPAdress(subNet, mask);
 
@@ -32,6 +32,9 @@ namespace Diplom
                 PingReply reply = Pinging.ReplyAllIP.Last();
                 Console.WriteLine(reply.Address.ToString());
             }
+            
+            CheckingPorts.Checking(Pinging.ReplyAllIP);
+
             
 
         }
