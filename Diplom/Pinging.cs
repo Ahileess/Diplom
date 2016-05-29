@@ -34,12 +34,13 @@ namespace Diplom
 
         public static void PingIPAsync(IPAddress address)
         {
+            byte[] buffer = Encoding.ASCII.GetBytes("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
             Console.WriteLine("Ping begin: " + address.ToString());
             AutoResetEvent waiter = new AutoResetEvent(false);
             Ping pingSender = new Ping();
             pingSender.PingCompleted += new PingCompletedEventHandler (PingCompletedCallack);
-            PingOptions options = new PingOptions(64, true);
-            pingSender.SendAsync(address, waiter);
+            PingOptions options = new PingOptions(128, true);
+            pingSender.SendAsync(address, 1000, buffer, waiter);
             waiter.WaitOne();
         }
 
