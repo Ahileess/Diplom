@@ -44,8 +44,14 @@ namespace Diplom
             
             CheckingPorts.Checking(Pinging.ReplyAllIP);
 
-            
+            foreach (string ip in CheckingPorts.IpList)
+            {
+                Console.WriteLine("After Check  " + ip);
+                DeviceType.AddTypeToDB(ip);
+            }
 
+
+            Console.ReadLine();
         }
     }
 }

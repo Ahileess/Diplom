@@ -7,3 +7,4 @@ C:\Users\ahile_000\Documents\Visual Studio 2015\Projects\Diplom\Diplom\obj\Debug
 C:\Users\Александр\Documents\Visual Studio 2015\Projects\Diplom\Diplom\Diplom\bin\Debug\Diplom.exe.config
 C:\Users\Александр\Documents\Visual Studio 2015\Projects\Diplom\Diplom\Diplom\obj\Debug\Diplom.exe
 C:\Users\Александр\Documents\Visual Studio 2015\Projects\Diplom\Diplom\Diplom\obj\Debug\Diplom.pdb
+C:\Users\ahile_000\Documents\Visual Studio 2015\Projects\Diplom\Diplom\bin\Debug\adodb.dll

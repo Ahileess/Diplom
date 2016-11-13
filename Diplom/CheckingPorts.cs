@@ -11,6 +11,7 @@ namespace Diplom
 {
     static class CheckingPorts
     {
+        static public List<string> IpList;
         private static Dictionary<int, string> portsTcpConnection;
         private static Dictionary<int, string> portsUdpConnection;
         private static DataBase db;
@@ -19,6 +20,7 @@ namespace Diplom
         {
             portsTcpConnection = new Dictionary<int, string>();
             portsUdpConnection = new Dictionary<int, string>();
+            IpList = new List<string>();
             AddPorts();
         }
 
@@ -34,10 +36,11 @@ namespace Diplom
 
         public static void Checking(List<PingReply> replys)
         {
-            db = new DataBase();
+            db = new DataBase(true);
             foreach (var reply in replys)
             {
                 var address = reply.Address;
+                IpList.Add(address.ToString());
                 Console.WriteLine("\n{0} адрес поддерживает службы:\n", address);
                 Console.WriteLine("\n Tcp соединение");
                 Parallel.ForEach(portsTcpConnection, (port) => 
@@ -45,18 +48,10 @@ namespace Diplom
                     if (IsOnlineTcp(address, port.Key))
                     {
                         Console.WriteLine("{0} на {1} порту", port.Value, port.Key);
-                        db.AddRecord(address.ToString(), port.Key.ToString(), port.Value, "TCP");
+                        db.AddRecordServices(address.ToString(), port.Key.ToString(), port.Value, "TCP");
                     }
                 });
-                    
-                    /*foreach (var port in portsTcpConnection)
-                {
-                    if (IsOnlineTcp(address, port.Key))
-                    {
-                        Console.WriteLine("{0} на {1} порту", port.Value, port.Key);
-                        db.AddRecord(address.ToString(), port.Key.ToString(), port.Value, "TCP");
-                    }
-                }*/
+                 
 
                 Console.WriteLine("\n Udp соединение");
                 foreach (var port in portsUdpConnection)
@@ -64,10 +59,12 @@ namespace Diplom
                     if (IsOnlineUdp(address, port.Key))
                     {
                         Console.WriteLine("{0} на {1} порту", port.Value, port.Key);
-                        db.AddRecord(address.ToString(), port.Key.ToString(), port.Value, "UDP");
+                        db.AddRecordServices(address.ToString(), port.Key.ToString(), port.Value, "UDP");
                     }
                 }
+                
             }
+            db.Close();
         }
 
         public static void ShowSelectedPorts()///нет Udp

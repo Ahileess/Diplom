@@ -11,10 +11,10 @@ namespace Diplom
         static private byte[] bitValue = { 128, 64, 32, 16, 8, 4, 2, 1 };
         static private int ipLength = 32;
         /// <summary>
-        ///  преобразование байта в двоичную строку
+        ///  преобразование байта в битовую строку
         /// </summary>
         /// <param name="ipi">один разряд ип адреса</param>
-        /// <returns>8-ми значная байтовая строка </returns>
+        /// <returns>8-ми значная битовая строка </returns>
         static public string ByteToBinaryString(byte ipi)
         {
             string rc = "";
@@ -53,9 +53,9 @@ namespace Diplom
             return rc;
         }
         /// <summary>
-        /// преобразование двоичной строки в байт
+        /// преобразование битовой строки в байт
         /// </summary>
-        /// <param name="eight"> двоичная 8-ми значная строка </param>
+        /// <param name="eight"> двоичная 8-ми значная битовая строка </param>
         /// <returns></returns>
         static public byte BinaryStringToByte(string eight)
         {

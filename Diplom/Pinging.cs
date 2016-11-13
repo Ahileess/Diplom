@@ -11,7 +11,6 @@ namespace Diplom
 {
     class Pinging
     {
-
         private static List<PingReply> replyAllIP;
 
         public static List<PingReply> ReplyAllIP
@@ -40,7 +39,7 @@ namespace Diplom
             Ping pingSender = new Ping();
             pingSender.PingCompleted += new PingCompletedEventHandler (PingCompletedCallack);
             PingOptions options = new PingOptions(128, true);
-            pingSender.SendAsync(address, 1000, buffer, waiter);
+            pingSender.SendAsync(address, 200, buffer, waiter);
             waiter.WaitOne();
         }
 
